@@ -1,0 +1,51 @@
+@media only screen and (max-width: 576px) {
+  
+body{
+    display: block !important;
+    
+}
+.containerGeneral{
+  width: 100%;
+  height: auto;
+}
+.logo{
+    width: 50% !important;
+    height: auto;
+}
+a{
+    display: block;
+}
+
+  .navbar {
+   max-width: 100% !important;
+    height: 5em;
+    display: block;
+    position: inherit;
+   
+  }
+  #container-items{
+    max-width: 100%;
+    display: block !important;
+    position: absolute;
+
+  }
+  .container-fluid{
+    display: block;
+    position: absolute;
+  }
+ 
+
+  .footer {
+    display: none !important;
+  }
+}
+
+
+
+
+@media (max-width: 767.98px) {
+}
+@media (max-width: 991.98px) {
+}
+@media (max-width: 1199.98px) {
+}
