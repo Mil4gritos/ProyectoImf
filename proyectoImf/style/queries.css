@@ -1,51 +1,127 @@
+
 @media only screen and (max-width: 576px) {
   
-body{
-    display: block !important;
-    
-}
-.containerGeneral{
-  width: 100%;
-  height: auto;
-}
-.logo{
-    width: 50% !important;
+  body{
+    max-width: 576px !important;
     height: auto;
-}
-a{
-    display: block;
-}
-
-  .navbar {
-   max-width: 100% !important;
-    height: 5em;
-    display: block;
-    position: inherit;
-   
-  }
-  #container-items{
-    max-width: 100%;
     display: block !important;
-    position: absolute;
-
+    background-color: red !important;
+    
+      
   }
-  .container-fluid{
-    display: block;
-    position: absolute;
+  .containerGeneral{
+    max-width: 577px;
+    height: auto;
+  
   }
- 
-
-  .footer {
-    display: none !important;
+  .logo{
+      width: 50% !important;
+      height: auto;
+      align-items: center;
   }
-}
+  a{
+   
+      display: block;
+  }
+  
+    nav{
+      max-width: inherit;
+      height: 5em;
+      display: block;
+      position: inherit;
+     
+    }
+    #container-items{
+      max-width: 100%;
+      height: auto;
+      display: block !important;
+      position: absolute;
+  
+  
+    }
+    .container-fluid{
+      display: block;
+     
+    }
+   
+  
+    .footer {
+      display: none !important;
+    }
+  }
+  
+  
+  
+  
+  
+  @media (max-width: 767.98px) {
 
-
-
-
-@media (max-width: 767.98px) {
-}
-@media (max-width: 991.98px) {
-}
-@media (max-width: 1199.98px) {
-}
+    #container-items{
+      max-width: 100%;
+      height: auto;
+      display: block !important;
+      position: absolute;
+  
+  
+    }
+    @media only screen and (max-width: 576px) {
+  
+      body{
+        max-width: 576px !important;
+        height: auto;
+        display: block !important;
+        background-color: red !important;
+        
+          
+      }
+      .containerGeneral{
+        max-width: 577px;
+        height: auto;
+      
+      }
+      .logo{
+          width: 50% !important;
+          height: auto;
+          align-items: center;
+      }
+      a{
+       
+          display: block;
+      }
+      
+        nav{
+          max-width: inherit;
+          height: 5em;
+          display: block;
+          position: inherit;
+         
+        }
+        #container-items{
+          max-width: 100%;
+          height: auto;
+          display: block !important;
+          position: absolute;
+      
+      
+        }
+        .container-fluid{
+          display: block;
+         
+        }
+       
+      
+        .footer {
+          width: 100%;
+          height: 10em;
+          margin-top: auto;
+          padding-left: 4%;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-content: center;
+          background-color: rgb(178, 193, 179);
+         
+        }
+      }
+       
+  }
+  
