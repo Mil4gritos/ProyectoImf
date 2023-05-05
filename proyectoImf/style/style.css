@@ -1,7 +1,8 @@
 * {
-  font-family: "Oswald", sans-serif;
-  font-family: "Roboto Condensed", sans-serif !important;
-  
+
+  font-family: 'Merriweather', serif !important;
+  font-family: 'Raleway', sans-serif !important;
+
 };
 html {
   min-height: 100%;
@@ -26,6 +27,9 @@ body{
   border-radius: 0.25rem;
 
 
+}
+#color{
+   color:aquamarine !important;
 }
 
 a {
@@ -88,7 +92,6 @@ button:hover {
 #container-items {
   width: 100%;
   height: 45em;
-  background-image: url("../images/—Pngtree—cute dog tiling background green_1349650.png");
  
 }
 

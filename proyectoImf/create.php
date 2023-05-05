@@ -4,10 +4,10 @@
 <section>
 
     <div class="px-4 py-5 px-md-5 text-center text-lg-start">
-        <div class="container" id="container">
+        <div class="container" id="container" style="background-color: rgba(0,0,0,.03);" >
             <div class="row gx-lg-5 align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
-                    <h1 class="my-5 display-3 fw-bold ls-tight">
+                    <h1 class="my-5 display-3 ls-tight">
                         Añade una nueva entrada<br />
                     </h1>
                     <p style="color: hsl(217, 10%, 50.8%)">
@@ -53,10 +53,11 @@
 
                                 <!-- Género input -->
                                 <div class="form-outline mb-4">
-                                    <select class="form-select" aria-label="Default select example" name="gender">
-                                        <option selected>Seleccione el género del animal</option>
-                                        <option value="Hembra">Hembra</option>
-                                        <option value="Macho">Macho</option>
+                                <label class="form-label" for="gender">Seleccione el género del animal</label>
+                                    <select class="form-select"  name="gender">
+                                     
+                                        <option  value="Hembra">Hembra</option>
+                                        <option  value="Macho">Macho</option>
                                     </select>
                                 </div>
 

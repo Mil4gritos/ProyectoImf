@@ -4,7 +4,7 @@
 <section class="">
 
   <div id="container-items" class="px-4 py-5 px-md-5 text-center text-lg-start">
-    <div class="container" id="container">
+    <div class="container" id="container" style="background-color: rgba(0,0,0,.03);">
       <div class="row gx-lg-5 align-items-center">
         <div class="col-lg-6 mb-5 mb-lg-0">
           <h1 class="my-5 display-3 ls-tight">

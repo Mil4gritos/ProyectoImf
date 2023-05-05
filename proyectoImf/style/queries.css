@@ -1,5 +1,6 @@
 
 @media only screen and (max-width: 576px) {
+
   
   body{
     max-width: 576px !important;
@@ -26,7 +27,7 @@
   
     nav{
       max-width: inherit;
-      height: 5em;
+      height: 10em;
       display: block;
       position: inherit;
      

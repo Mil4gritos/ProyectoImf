@@ -40,9 +40,20 @@ function deleteError()
 //Query para listar los animales de la bbdd
 function listAnimals($conexion)
 {
-    $sql = "SELECT * FROM animales ORDER BY id ASC"; 
+    $nummberItems = 3;
+    $pageInitial = 1;
+   
+
+    if (isset($_GET['page'])) {
+       $pageInitial = $_GET['page'];
+    } else {
+        $pageInitial = 1;
+    }
+
+    $sql = "SELECT * FROM animales LIMIT " .(($pageInitial  - 1) * $nummberItems) . "," . $nummberItems ; 
 
     $animals = mysqli_query($conexion, $sql);
+
     $result = array();
 
     if ($animals && mysqli_num_rows($animals) >= 1) {
@@ -51,11 +62,35 @@ function listAnimals($conexion)
     }
 
     return $result;
+
 }
 
-//Función para mostar los datos comletos de la ficha del animal 
+//Función para contar los registros
+
+function countAnimals($conexion)
+{
+
+// Cuento el número total de registros
+
+$sqlCount = "SELECT count(*) as num_animales FROM animales";
+
+//Ejecuto la consulta
+$maxItems = mysqli_query($conexion, $sqlCount);
+
+//Recojo el total de los registros
+$dataTotal = array();
+
+$dataTotal = mysqli_fetch_assoc($maxItems)['num_animales'];
+
+    return $dataTotal;
+}
+
+
+
+//Función para mostrar los datos completos de la ficha del animal 
 function detailAnimals($conexion,$id,$seach_animals = null)
 {
+   
     $sql = "SELECT * FROM animales WHERE id = $id";
 
     $detail_animals = mysqli_query($conexion, $sql);
@@ -65,8 +100,10 @@ function detailAnimals($conexion,$id,$seach_animals = null)
 
         $result = mysqli_fetch_assoc($detail_animals);
     }
-
     return $result;
+   
+
+
 }
 
 
@@ -88,11 +125,6 @@ function deleteErrorCreate()
 
     return $delete;
 }
-
-
-
-
-
 
 
 //Función para buscar

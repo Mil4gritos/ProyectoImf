@@ -114,6 +114,7 @@ if (empty($description)) {
 //Comprobación de que no existe ningún error antes de grabar en la base de datos
 
 $addAnimal = false;
+
 if (count($errors) == 0) {
 
     if (isset($_GET['Edit'])) {
@@ -137,8 +138,11 @@ if (count($errors) == 0) {
 
         } else {
             $_SESSION['errors'] = $errors;
-            header('Location:editAnimal.php');
+            
+            header("Location:editAnimal.php?id=".$_GET['Edit']);
         }
+
+
     } else {
 
         $sql = "INSERT INTO animales VALUES(NULL,'$name','$age','$species','$gender','$img','$description')";
@@ -168,7 +172,15 @@ if (count($errors) == 0) {
 } else {
 
     $_SESSION['errors'] = $errors;
-   
-    header('Location:create.php');
+
+    if (isset($_GET['Edit'])) {
+
+        header("Location:editAnimal.php?id=".$_GET['Edit']);
+    }else{
+
+        header('Location:create.php');
+
+    }
+ 
    
 }

@@ -13,14 +13,14 @@
     ?>
 
     <section>
-        <div class="container" id="container" style="    background-color: rgba(0,0,0,.03);">
+        <div class="container" id="container" style="background-color: rgba(0,0,0,.03);">
             <div class="col-lg-6 mb-5 mb-lg-0">
-                <h2 class="my-5 display-3 fw-bold ls-tight">Ficha de: 
+                <h2 class="my-5 display-3 ls-tight">Ficha de: 
                     <?= $detail_animals['nombre'] ?>
                 </h2>
 
             </div>
-            <div class="card row p-4" id="container-detail" >
+            <div class="card block p-4" id="container-detail" >
                 <div class="col-md-2 mb-2"  id="imgDeatil">
                     <img class="card-img-top p-2" style="width: 18rem;" src="images/<?php echo $detail_animals['foto']; ?>" alt="Card image cap"
                  >
@@ -39,7 +39,7 @@
                     </div>
 
 
-                    <div class="col-md-6 mb-4" >
+                    <div class="col-4-md-6 mb-4" >
                     <a href="editAnimal.php?id=<?=$detail_animals['id'] ?>">
                     <button type="submit" name="submit" class="btn btn-secondary btn-lg btn-block mb-4">
                     Editar Ficha
