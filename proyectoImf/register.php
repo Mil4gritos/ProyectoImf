@@ -1,5 +1,7 @@
 <?php require_once 'includes/headerNotRegister.php'; ?>
 <?php require_once 'includes/libraryPhp.php'; ?>
+<!--Sessión-->
+<?php Conexion::session();?>
 
 <section class="">
 
@@ -91,7 +93,7 @@
                 </button>
               </form>
               <!--Borrado de errores para que no se queden almacenados-->
-              <?php deleteError(); ?>
+              <?php LibraryPhp::deleteError(); ?> 
 
             </div>
           </div>

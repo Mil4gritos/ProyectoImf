@@ -1,35 +1,27 @@
 * {
-
-  font-family: 'Merriweather', serif !important;
-  font-family: 'Raleway', sans-serif !important;
-
-};
+  font-family: "Merriweather", serif !important;
+  font-family: "Raleway", sans-serif !important;
+}
 html {
   min-height: 100%;
   position: relative;
+ 
 }
 
-
-body{
-   background-image: url("../images/—Pngtree—cute dog tiling background green_1349650.png");
-
-
+body {
+ 
+  background-image: url("../images/—Pngtree—cute dog tiling background green_1349650.png");
 }
 
 .containerGeneral {
+  height: 70rem;
   background-image: url("../images/—Pngtree—cute dog tiling background green_1349650.png");
-
 }
-#container{
+#container {
   padding: 1%;
-  border: 1px solid rgba(0,0,0,.125);
+  border: 1px solid rgba(0, 0, 0, 0.125);
   background-color: #fff;
   border-radius: 0.25rem;
-
-
-}
-#color{
-   color:aquamarine !important;
 }
 
 a {
@@ -49,9 +41,11 @@ button:hover {
   background-color: rgb(84, 92, 85) !important;
 }
 
+
 .navbar {
-  
+
   background-color: rgb(178, 193, 179) !important;
+
 }
 
 .nav-link {
@@ -59,12 +53,19 @@ button:hover {
 }
 
 .logo {
-  width: 4% !important;
+  width: 8%;
   margin-left: 1% !important;
 }
 
 .navbar-toggler-icon {
   color: black !important;
+}
+
+.collapse:not(.show) {
+  display: none;
+}
+.collapse.show{
+  display: block;
 }
 
 #rowSearch {
@@ -80,7 +81,6 @@ button:hover {
   align-content: flex-end;
 }
 
-
 #card-header {
   background: none;
   padding-top: 10%;
@@ -92,27 +92,22 @@ button:hover {
 #container-items {
   width: 100%;
   height: 45em;
- 
 }
 
 #edit-animal {
   color: rgb(178, 193, 179);
 }
 
-
-
-
 .footer {
   width: 100%;
   height: 10em;
-  bottom: 0;
+  margin-top: 18%;
   position: inherit;
   padding-left: 4%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-content: center;
   background-color: rgb(178, 193, 179);
-  
 }
 
 #container-detail {
@@ -123,9 +118,6 @@ button:hover {
 img {
   border-radius: 6% !important;
 }
-
-
-
 
 .alert-exito {
   color: green;

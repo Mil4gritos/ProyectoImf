@@ -1,8 +1,10 @@
 <?php require_once 'includes/headerYesRegister.php'; ?>
 <?php require_once 'includes/libraryPhp.php'; ?>
+<!--Sessión-->
+<?php Conexion::session();?>
 
 
-<section class="">
+<section >
 
   <div id="container-items" class="px-4 py-5 px-md-5 text-center text-lg-start">
     <div class="container" id="container" style="background-color: rgba(0,0,0,.03);">
@@ -88,7 +90,7 @@
                 </button>
               </form>
               <!--Borrado de errores para que no se queden almacenados-->
-              <?php deleteError(); ?>
+              <?php LibraryPhp::deleteError(); ?>
             </div>
           </div>
         </div>

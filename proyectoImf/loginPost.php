@@ -1,8 +1,11 @@
 <?php
 
 //Iniciar sesión y conexión a bd
-include require_once 'includes/conexion.php';
-
+require_once 'includes/conexion.php';
+//Conexión database
+$db=Conexion::conectar();
+//Sessión
+Conexion::session();
 
 //Recogemos los datos del formulario
 
@@ -64,5 +67,4 @@ if (isset($_POST)) {
           header('Location:login.php');
     }
 
-//redirigir al index
-//header('location:layConRegistro.php');
+

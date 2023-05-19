@@ -1,150 +1,170 @@
 <?php
 
-//Función para mostrar aviso en el registro cuando los datos no son válidos
-
-function errorAlert($errors, $field)
+class LibraryPhp
 {
-    $alert = '';
-    if (isset($errors[$field]) && !empty($field)) {
-        $alert = "<p>" . $errors[$field] . "</p";
-    }
-    return $alert;
-}
 
-//función para borrar los errores
 
-function deleteError()
-{
-    $delete = false;
+    //Función para mostrar aviso en el registro cuando los datos no son válidos
 
-    if (isset($_SESSION['errors'])) {
-        $_SESSION['errors'] = null;
-        $delete=true;
+    public static function errorAlert($errors, $field)
+    {
+        $alert = '';
+        if (isset($errors[$field]) && !empty($field)) {
+            $alert = "<p>" . $errors[$field] . "</p";
+        }
+        return $alert;
     }
 
-    if (isset($_SESSION['complete'])) {
-        $_SESSION['complete'] = null;
-        $delete=true;
+    //función para borrar los errores
+
+    public static function deleteError()
+    {
+        $delete = false;
+
+        if (isset($_SESSION['errors'])) {
+            $_SESSION['errors'] = null;
+            $delete = true;
+        }
+
+        if (isset($_SESSION['complete'])) {
+            $_SESSION['complete'] = null;
+            $delete = true;
+        }
+        //Si hay errores borro la sesión
+        if (isset($_SESSION['error_login'])) {
+
+            $_SESSION['error_login'] = null;
+
+            $delete = true;
+        }
+
+        return $delete;
     }
-    //Si hay errores borro la sesión
-    if (isset($_SESSION['error_login'])) {
 
-        $_SESSION['error_login'] = null;
-
-        $delete=true;
-    }
-
-    return $delete;
-}
-
-//Query para listar los animales de la bbdd
-function listAnimals($conexion)
-{
-    $nummberItems = 3;
-    $pageInitial = 1;
-   
-
-    if (isset($_GET['page'])) {
-       $pageInitial = $_GET['page'];
-    } else {
+    //Función Query para listar los animales de la bbdd
+    public static function listAnimals($conexion)
+    {
+        $nummberItems = 3;
         $pageInitial = 1;
+
+
+        if (isset($_GET['page'])) {
+            $pageInitial = $_GET['page'];
+        } else {
+            $pageInitial = 1;
+        }
+
+        $sql = "SELECT * FROM animales LIMIT " . (($pageInitial  - 1) * $nummberItems) . "," . $nummberItems;
+
+        $animals = mysqli_query($conexion, $sql);
+
+        $result = array();
+
+        if ($animals && mysqli_num_rows($animals) >= 1) {
+
+            $result = $animals;
+        }
+
+        return $result;
     }
 
-    $sql = "SELECT * FROM animales LIMIT " .(($pageInitial  - 1) * $nummberItems) . "," . $nummberItems ; 
+    //Función para contar los registros
 
-    $animals = mysqli_query($conexion, $sql);
+    public static function countAnimals($conexion)
+    {
 
-    $result = array();
+        // Cuento el número total de registros
 
-    if ($animals && mysqli_num_rows($animals) >= 1) {
+        $sqlCount = "SELECT count(*) as num_animales FROM animales";
 
-        $result = $animals;
+        //Ejecuto la consulta
+        $maxItems = mysqli_query($conexion, $sqlCount);
+
+        //Recojo el total de los registros
+        $dataTotal = array();
+
+        $dataTotal = mysqli_fetch_assoc($maxItems)['num_animales'];
+
+        return $dataTotal;
     }
 
-    return $result;
-
-}
-
-//Función para contar los registros
-
-function countAnimals($conexion)
-{
-
-// Cuento el número total de registros
-
-$sqlCount = "SELECT count(*) as num_animales FROM animales";
-
-//Ejecuto la consulta
-$maxItems = mysqli_query($conexion, $sqlCount);
-
-//Recojo el total de los registros
-$dataTotal = array();
-
-$dataTotal = mysqli_fetch_assoc($maxItems)['num_animales'];
-
-    return $dataTotal;
-}
 
 
+    //Función para mostrar los datos completos de la ficha del animal 
+    public static function detailAnimals($conexion, $id)
+    {
 
-//Función para mostrar los datos completos de la ficha del animal 
-function detailAnimals($conexion,$id,$seach_animals = null)
-{
-   
-    $sql = "SELECT * FROM animales WHERE id = $id";
+        $sql = "SELECT * FROM animales WHERE id = $id";
 
-    $detail_animals = mysqli_query($conexion, $sql);
-    $result = array();
+        $detail_animals = mysqli_query($conexion, $sql);
+        $result = array();
 
-    if ($detail_animals && mysqli_num_rows($detail_animals) >= 1) {
+        if ($detail_animals && mysqli_num_rows($detail_animals) >= 1) {
 
-        $result = mysqli_fetch_assoc($detail_animals);
-    }
-    return $result;
-   
-
-
-}
-
-
-//Función para borrar los errores del formulario de nuevos registros 
-
-function deleteErrorCreate()
-{
-    $delete = false;
-
-    if (isset($_SESSION['errors'])) {
-        $_SESSION['errors'] = null;
-        $delete = true;
+            $result = mysqli_fetch_assoc($detail_animals);
+        }
+        return $result;
     }
 
-    if (isset($_SESSION['complete'])) {
-        $_SESSION['complete'] = null;
-        $delete = true;
+    //Función eliminar de la bd
+    public static function delete($db, $id)
+    {
+        $sql = "DELETE FROM animales WHERE id = $id";
+
+        $delete_animal = mysqli_query($db, $sql);
+        $result = array();
+
+
+
+        $result = $delete_animal;
+
+
+        return $result;
     }
 
-    return $delete;
-}
 
 
-//Función para buscar
-
-function searchAnimal($conexion,$seach_animals = null){
 
 
-    if(!empty($seach_animals)){
+    //Función para borrar los errores del formulario de nuevos registros 
 
-    $sql = "SELECT * FROM animales WHERE nombre LIKE '%$seach_animals%' ORDER BY id ASC";
+    public static function deleteErrorCreate()
+    {
+        $delete = false;
 
-    $animals = mysqli_query($conexion, $sql);
-    $result = array();
-    
-    if ($animals && mysqli_num_rows($animals) >= 1) {
+        if (isset($_SESSION['errors'])) {
+            $_SESSION['errors'] = null;
+            $delete = true;
+        }
 
-        $result = $animals;
+        if (isset($_SESSION['complete'])) {
+            $_SESSION['complete'] = null;
+            $delete = true;
+        }
+
+        return $delete;
     }
 
-    return $result;
-}
 
-}
+    //Función para buscar
+
+    public static function searchAnimal($conexion, $seach_animals = null)
+    {
+
+
+        if (!empty($seach_animals)) {
+
+            $sql = "SELECT * FROM animales WHERE nombre LIKE '%$seach_animals%' ORDER BY id ASC";
+
+            $animals = mysqli_query($conexion, $sql);
+            $result = array();
+
+            if ($animals && mysqli_num_rows($animals) >= 1) {
+
+                $result = $animals;
+            }
+
+            return $result;
+        }
+    }
+};

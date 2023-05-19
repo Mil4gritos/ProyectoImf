@@ -1,4 +1,5 @@
 <?php
+
  
 //Comprobación de que llegan los datos del formulario
 if (isset($_POST)) {
@@ -7,6 +8,10 @@ if (isset($_POST)) {
  require_once 'includes/conexion.php';
  //Incluyo archivo de funciones php ibraryPhp.php
  require_once 'includes/libraryPhp.php';
+  //Conexión database
+$db=Conexion::conectar();
+
+
 
 //si no tenemos sesión la establecemos
  if(!isset ($_SESSION)){

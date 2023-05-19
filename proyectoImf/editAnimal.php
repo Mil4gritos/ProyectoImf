@@ -2,8 +2,13 @@
 <?php require_once 'includes/libraryPhp.php'; ?>
 
 <?php
+//Conexión database
+$db=Conexion::conectar();
+//Sesión
+Conexion::session();
+
 //Listamos/mostramos los animales de la bbdd tabla animales
-$detail_animals = detailAnimals($db, $_GET['id']);
+$detail_animals = LibraryPhp::detailAnimals($db, $_GET['id']);
 
 ?>
 
@@ -122,7 +127,7 @@ $detail_animals = detailAnimals($db, $_GET['id']);
 
                             </form>
                             <!--Borrado de errores para que no se queden almacenados-->
-                            <?php deleteErrorCreate(); ?>
+                            <?php LibraryPhp::deleteErrorCreate(); ?>
 
 
                         </div>

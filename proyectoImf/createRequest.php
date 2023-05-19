@@ -1,5 +1,6 @@
 <?php
 
+
 //Comprobación de que llegan los datos del formulario
 if (isset($_POST)) {
 
@@ -8,9 +9,15 @@ if (isset($_POST)) {
     require_once 'includes/libraryPhp.php';
     //require_once 'create.php';
 
+    //Conexión database
+    $db = Conexion::conectar();
 
+    Conexion::session();
+
+    //Voy a rescatar el id del usuario
+    $idUsuario = $_SESSION['usuario']['id'];
 }
-
+    
 
 //Se recogen los valores del formulario de registro
 //Con mysqli_real_escape_string escapo los datos tomando los datos como string por si hubiera comillas 
@@ -86,8 +93,6 @@ if (empty($img)) {
             mkdir($uploadImg, 0777, true);
 
             move_uploaded_file($temp, $addImg);
-           
-
         } else {
             move_uploaded_file($temp, $addImg);
         }
@@ -135,17 +140,17 @@ if (count($errors) == 0) {
 
             $addAnimal = true;
             $_SESSION['complete'] = "Los datos se han editado correctamente";
-
         } else {
             $_SESSION['errors'] = $errors;
-            
-            header("Location:editAnimal.php?id=".$_GET['Edit']);
+
+            header("Location:editAnimal.php?id=" . $_GET['Edit']);
         }
-
-
     } else {
 
-        $sql = "INSERT INTO animales VALUES(NULL,'$name','$age','$species','$gender','$img','$description')";
+
+
+
+        $sql = "INSERT INTO animales VALUES(NULL,'$name','$age','$species','$gender','$img','$description','$idUsuario')";
 
 
         //INSERT EN LA TABLA ANIMALES DE LA BBDD
@@ -153,11 +158,9 @@ if (count($errors) == 0) {
         $insert = mysqli_query($db, $sql);
 
         if ($insert) {
-          $addAnimal = true;
+            $addAnimal = true;
             $_SESSION['complete'] = "Los datos se han insertado correctamente";
             header('Location:create.php');
-            
-         
         } else {
             $_SESSION['errors'] = $errors;
             header('Location:create.php');
@@ -165,22 +168,20 @@ if (count($errors) == 0) {
     }
 
 
-   
+
     $_SESSION['complete'] = "Los datos se han insertado correctamente";
     header('Location:create.php');
-
 } else {
 
     $_SESSION['errors'] = $errors;
 
     if (isset($_GET['Edit'])) {
 
-        header("Location:editAnimal.php?id=".$_GET['Edit']);
-    }else{
+        header("Location:editAnimal.php?id=" . $_GET['Edit']);
+    } else {
 
         header('Location:create.php');
-
     }
- 
-   
 }
+    
+

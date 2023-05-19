@@ -1,10 +1,16 @@
 <?php
+
  
 //Comprobación de que llegan los datos del formulario
 if (isset($_POST)) {
 
 //Establecemos coxexión solo si tengo datos mediante post
  require_once 'includes/conexion.php';
+ //Sesión
+Conexion::session();
+ //Conexión database
+$db=Conexion::conectar();
+
  //Incluyo archivo de funciones php ibraryPhp.php
  require_once 'includes/libraryPhp.php';
 

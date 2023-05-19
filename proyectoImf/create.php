@@ -1,5 +1,8 @@
 <?php require_once 'includes/headerYesRegister.php'; ?>
 <?php require_once 'includes/libraryPhp.php'; ?>
+<!--Sessión-->
+<?php Conexion::session();?>
+
 
 <section>
 
@@ -116,7 +119,7 @@
 
                             </form>
                             <!--Borrado de errores para que no se queden almacenados-->
-                            <?php deleteErrorCreate(); ?>
+                            <?php LibraryPhp::deleteErrorCreate(); ?>
 
 
                         </div>
@@ -125,7 +128,7 @@
             </div>
         </div>
     </div>
-    <!-- Jumbotron -->
+   
 </section>
 
 <?php require_once 'includes/footer.php'; ?>

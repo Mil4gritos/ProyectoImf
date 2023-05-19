@@ -1,5 +1,8 @@
 <?php require_once 'conexion.php' ?>
-<?php require_once 'includes/libraryPhp.php' ?>
+<?php require_once 'includes/libraryPhp.php'
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,300&family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,300&family=Raleway:wght@300&display=swap" rel="stylesheet">
     <link href="style/style.css" rel="stylesheet" integrity="" crossorigin="anonymous">
     <link href="style/queries.css" rel="stylesheet" integrity="" crossorigin="anonymous">
     <link rel="icon" href="images/favicon.png" type="image/png" />
@@ -21,7 +24,6 @@
 <body>
     <div class="containerGeneral">
         <header>
-
             <nav class="navbar navbar-expand-md">
                 <div class="container-fluid">
 
@@ -36,15 +38,15 @@
                                 <a class="nav-link active" aria-current="page" href="layYesRegister.php">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="animales.php?page=1">Animales</a>
+                                <a class="nav-link active" href="animales.php?page=1">Animales</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="create.php">Gestión</a>
+                                <a class="nav-link active" href="create.php">Gestión</a>
                             </li>
                         </ul>
 
                     </div>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link active" href="profile.php">Mi perfil</a>

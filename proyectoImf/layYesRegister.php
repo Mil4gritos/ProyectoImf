@@ -1,5 +1,8 @@
+<?php require_once 'includes/conexion.php' ?>
 <?php require_once 'includes/headerYesRegister.php' ?>
 <?php require_once 'includes/libraryPhp.php' ?>
+
+<?php Conexion::session();?>
 
 <?php if (isset($_SESSION['usuario'])) : ?>
 
@@ -15,7 +18,7 @@
           <div class="card-body">
            
             <p class="card-text">Seleccione una opción del menú superior</p>
-            <img src="images/GestAnimal-removebg-preview (2).png" alt="Imagen logotipo">
+            <img src="images/GestAnimal-removebg-preview (2).png" alt="Imagen logotipo" id="imgLogo">
 
           </div>
         </div>

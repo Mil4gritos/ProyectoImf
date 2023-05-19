@@ -1,5 +1,7 @@
 <?php require_once 'includes/headerNotRegister.php'; ?>
 <?php require_once 'includes/libraryPhp.php'; ?>
+<!--Sessión-->
+<?php Conexion::session();?>
 
 <section>
     <!-- Jumbotron -->
@@ -28,14 +30,16 @@
 
                                 <!-- Email input -->
                                     <div class="form-outline mb-4">
+                                    <label class="form-label" for="emailForm">Email</label>
                                         <input type="email" name="emailForm" class="form-control" required />
-                                        <label class="form-label" for="emailForm">Email</label>
+                                      
                                     </div>
 
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
+                                    <label class="form-label" for="passForm">Contraseña</label>
                                         <input type="password" name="passForm" class="form-control" required />
-                                        <label class="form-label" for="passForm">Contraseña</label>
+                                       
                                     </div>
 
                                   
@@ -49,7 +53,7 @@
                                     </button>
 
                             </form>
-                            <?php deleteError(); ?>
+                            <?php LibraryPhp::deleteError(); ?>
                         </div>
                     </div>
                 </div>
